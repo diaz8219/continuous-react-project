@@ -21,19 +21,11 @@ src/\
 │   └── fonts/\
 ├── components/\
 │   ├── common/\
-│   │   └── Button.jsx\
 │   └── specific/\
-│       └── UserProfileCard.jsx\
 ├── pages/ (or views/)\
-│   ├── HomePage.jsx\
-│   └── AboutPage.jsx\
 ├── hooks/\
-│   └── useAuth.js\
 ├── utils/\
-│   └── helpers.js\
 ├── styles/\
-│   ├── global.css\
-│   └── variables.css\
 ├── App.jsx\
 ├── main.jsx (or main.tsx for TypeScript)\
 └── index.css\
