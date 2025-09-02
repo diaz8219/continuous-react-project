@@ -2,6 +2,17 @@ import './Login.css'
 import { useState } from "react";
 
 const LogIn = () => {
+  const [getEmail, setEmail] = useState("");
+  const [getPassword, setPassword] = useState("");
+
+  function logIn() {
+    if (getEmail == "correo@correo.com" && getPassword == "admin123") {
+      alert("Bienvenido al sistema " + getEmail);
+    } else {
+      alert("Error de credenciales");
+    }
+  }
+
   return (
     <div className='form-container'>
       <form className="form">
