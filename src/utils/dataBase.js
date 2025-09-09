@@ -1,7 +1,7 @@
 export let users = [
   {
     name: "John Administrator",
-    email: "admin@example.com",
+    email: "admin@admin.com",
     password: "admin123",
   },
   {

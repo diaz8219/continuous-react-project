@@ -24,7 +24,7 @@ const LogIn = () => {
     } else if (getEmail == "" || getPassword == "") {
       generalAlert(
         "Invalid credentials",
-        "Please do not leave the input fields empty.",
+        "Please do not leave any empty input fields.",
         "error"
       );
     } else {
