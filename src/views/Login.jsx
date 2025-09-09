@@ -3,6 +3,7 @@ import { useState } from "react";
 import { users } from "../utils/dataBase.js";
 import { useNavigate } from "react-router-dom";
 import { generalAlert, successLoginAlert } from "../utils/alerts.js";
+import { generateToken } from "../utils/functions.js";
 
 const LogIn = () => {
   const [getEmail, setEmail] = useState("");
@@ -20,6 +21,10 @@ const LogIn = () => {
   function logIn() {
     console.log();
     if (searchUser()) {
+      let accessToken = generateToken();
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("user", JSON.stringify(searchUser()));
+
       successLoginAlert(searchUser().name, redirect, "/home");
     } else if (getEmail == "" || getPassword == "") {
       generalAlert(
@@ -55,7 +60,7 @@ const LogIn = () => {
           <input
             required=""
             autoComplete="off"
-            type="text"
+            type="password"
             placeholder="Enter password"
             id="password"
             onChange={(e) => setPassword(e.target.value)}

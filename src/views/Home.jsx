@@ -1,6 +1,7 @@
 const Home = () => {
+  let user = JSON.parse(localStorage.getItem("user"))
   return (
-    <div>Home</div>
+    <div>welcome, {user.name}</div>
   )
 }
 
