@@ -10,6 +10,16 @@ export function successLoginAlert(username, redirect, path) {
   redirect(path);
 }
 
+export function logOutAlert(redirect, path) {
+  Swal.fire({
+    title: "Logging out..",
+    text: "See you soon!",
+    icon: "info",
+  });
+
+  redirect(path);
+}
+
 export function missingAuthTokenAlert() {
   Swal.fire({
     title: "Invalid access token!",
