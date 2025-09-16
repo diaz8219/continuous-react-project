@@ -43,9 +43,9 @@ const LogIn = () => {
 
   return (
     <div className="form-container">
-      <form className="form">
-        <p className="form-title">Sign in to your account</p>
-        <div className="input-container">
+      <form className="form-container__form">
+        <p className="form-container__form__p">Sign in to your account</p>
+        <div className="form-container__form__input">
           <input
             required=""
             autoComplete="off"
@@ -56,7 +56,7 @@ const LogIn = () => {
           />
           <span></span>
         </div>
-        <div className="input-container">
+        <div className="form-container__form__input">
           <input
             required=""
             autoComplete="off"
@@ -66,11 +66,11 @@ const LogIn = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="button" onClick={logIn} className="submit">
+        <button type="button" onClick={logIn} className="form-container__form__btn">
           Sign in
         </button>
 
-        <p className="signup-link">
+        <p className="form-container__form__signup">
           No account?
           <a href="">Sign up</a>
         </p>
