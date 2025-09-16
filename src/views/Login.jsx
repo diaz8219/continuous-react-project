@@ -1,7 +1,7 @@
 import "./Login.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { users } from "../utils/dataBase.js";
-import { useNavigate } from "react-router-dom";
+import { replace, useNavigate } from "react-router-dom";
 import { generalAlert, successLoginAlert } from "../utils/alerts.js";
 import { generateToken } from "../utils/functions.js";
 
@@ -9,6 +9,14 @@ const LogIn = () => {
   const [getEmail, setEmail] = useState("");
   const [getPassword, setPassword] = useState("");
   let redirect = useNavigate();
+
+  useEffect(() => {
+    let token = localStorage.getItem("accessToken");
+
+    if (token) {
+      redirect("/home", { replace: true });
+    }
+  }, []);
 
   function searchUser() {
     let auth = users.find(
@@ -44,7 +52,7 @@ const LogIn = () => {
   return (
     <div className="form-container">
       <form className="form-container__form">
-        <p className="form-container__form__p">Sign in to your account</p>
+        <p className="form-container__form__p">Log in to your account</p>
         <div className="form-container__form__input">
           <input
             required=""
@@ -66,7 +74,11 @@ const LogIn = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="button" onClick={logIn} className="form-container__form__btn">
+        <button
+          type="button"
+          onClick={logIn}
+          className="form-container__form__btn"
+        >
           Sign in
         </button>
 
