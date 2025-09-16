@@ -1,4 +1,4 @@
-## Basic Git Flow acronyms
+## Basic Git commit message acronyms
 ---
 **feat** - New feature added.<br><br>
 **fix** - Bug fix.<br><br>
