@@ -1,12 +1,16 @@
-## Basic Git commit message acronyms
----
-**feat** - New feature added.<br><br>
-**fix** - Bug fix.<br><br>
-**docs** - Changes to documentation.<br><br>
-**style** - Changes that do not affect code (Formatting, whitespaces, tabs, etc.).<br><br>
-**refactor** - Improvements to the internal structure / code readability.<br><br>
-**test** - Add / refactor tests.<br><br>
-**chore** - Routine tasks (Project maintenance).<br><br>
-**perf** - Performance improvement<br><br>
-**build** - Changes regarding the build system, compilation, external dependencies, etc.<br><br>
-**ci** - Changes to integration config.<br><br>
+# Personal React Project
+## Dependencies:
+```
+sweetalert2
+react-router-dom
+```
+
+## Short description
+This is a React & Vite project made for my Soft. Dev. classes. In this repo you will find what I learned and put into practice.
+
+The central theme is an educational platform.
+It currently features a log-in system using APIs (Current log-in info below), a working navigation system and a decent folder structure.
+
+### Log-in info (Fake data, don't worry)
+- e-mail: `carlos.restrepo@familiar.co`
+- pass: `hashed_password_789`

@@ -4,10 +4,10 @@ import "./Header.css";
 
 const Header = () => {
   let userAuth = JSON.parse(localStorage.getItem("user"));
-
-  let nameInitials = userAuth.nombre.split(" ").map((letter) => letter[0]).join("")
-
+  let nameInitials = userAuth.nombre.split(" ").map((letter) => letter[0]).join("") // Set username initials for usage in user icon
   let redirect = useNavigate();
+
+  // Log out function
   function logOut() {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("user");

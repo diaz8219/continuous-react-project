@@ -6,11 +6,13 @@ import { generateToken } from "../utils/functions.js";
 import { endpoints } from "../api/apiManagementSystem.js";
 
 const LogIn = () => {
+  // Setting up state variables
   const [getEmail, setEmail] = useState("");
   const [getPassword, setPassword] = useState("");
   const [users, setUsers] = useState([]);
   let redirect = useNavigate();
 
+  // API -> GET Operation
   function getUsers() {
     fetch(endpoints.users)
       .then((response) => response.json())
@@ -18,15 +20,17 @@ const LogIn = () => {
       .catch((error) => console.log(error));
   }
 
+  // Async functions to perform as soon as the webpage gets loaded
   useEffect(() => {
     getUsers();
     let token = localStorage.getItem("accessToken");
 
     if (token) {
-      redirect("/home", { replace: true });
+      redirect("/home", { replace: true }); // If there is an access token, redirect to /home
     }
   }, []);
 
+  // Search if user exists in DB
   function searchUser() {
     let auth = users.find(
       (user) => getEmail == user.correo && getPassword == user.contraseña
@@ -35,21 +39,25 @@ const LogIn = () => {
     return auth;
   }
 
+  // Log in function
   function logIn() {
     console.log();
     if (searchUser()) {
       let accessToken = generateToken();
+      // Set localStorage items for user authentication
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("user", JSON.stringify(searchUser()));
 
-      successLoginAlert(searchUser().nombre, redirect, "/home");
+      successLoginAlert(searchUser().nombre, redirect, "/home"); // If log in is successful then redirect to /home
     } else if (getEmail == "" || getPassword == "") {
+      // If any input fields are empty, throw alert
       generalAlert(
         "Invalid credentials",
         "Please do not leave any empty input fields.",
         "error"
       );
     } else {
+      // If any input fields is invalid, throw alert
       generalAlert(
         "Invalid credentials",
         "Please enter your credentials again.",

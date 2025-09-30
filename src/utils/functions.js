@@ -1,3 +1,4 @@
+// Generate Auth token for verifying login state
 export function generateToken() {
   return (
     Math.random().toString(36) +
