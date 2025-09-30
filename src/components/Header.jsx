@@ -51,7 +51,7 @@ const Header = () => {
             </div>
           </div>
           <button onClick={logOut} type="button" className="logout-btn">
-            Cerrar Sesión
+            Log Out
           </button>
         </div>
       </div>
