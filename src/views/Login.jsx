@@ -1,7 +1,7 @@
 import "./Login.css";
 import { useEffect, useState } from "react";
 import { users } from "../utils/dataBase.js";
-import { replace, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { generalAlert, successLoginAlert } from "../utils/alerts.js";
 import { generateToken } from "../utils/functions.js";
 
