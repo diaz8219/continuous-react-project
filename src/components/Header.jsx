@@ -5,7 +5,7 @@ import "./Header.css";
 const Header = () => {
   let userAuth = JSON.parse(localStorage.getItem("user"));
   let redirect = useNavigate();
-  function cerrarSesion() {
+  function logOut() {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("user");
     logOutAlert(redirect, "/");
@@ -50,7 +50,7 @@ const Header = () => {
               <span className="user-name">{userAuth.name}</span>
             </div>
           </div>
-          <button onClick={cerrarSesion} type="button" className="logout-btn">
+          <button onClick={logOut} type="button" className="logout-btn">
             Cerrar Sesión
           </button>
         </div>
