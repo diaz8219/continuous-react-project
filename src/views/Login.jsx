@@ -1,16 +1,25 @@
 import "./Login.css";
 import { useEffect, useState } from "react";
-import { users } from "../utils/dataBase.js";
 import { useNavigate } from "react-router-dom";
 import { generalAlert, successLoginAlert } from "../utils/alerts.js";
 import { generateToken } from "../utils/functions.js";
+import { endpoints } from "../api/apiManagementSystem.js";
 
 const LogIn = () => {
   const [getEmail, setEmail] = useState("");
   const [getPassword, setPassword] = useState("");
+  const [users, setUsers] = useState([]);
   let redirect = useNavigate();
 
+  function getUsers() {
+    fetch(endpoints.users)
+      .then((response) => response.json())
+      .then((data) => setUsers(data))
+      .catch((error) => console.log(error));
+  }
+
   useEffect(() => {
+    getUsers();
     let token = localStorage.getItem("accessToken");
 
     if (token) {
@@ -20,7 +29,7 @@ const LogIn = () => {
 
   function searchUser() {
     let auth = users.find(
-      (user) => getEmail == user.email && getPassword == user.password
+      (user) => getEmail == user.correo && getPassword == user.contraseña
     );
 
     return auth;
@@ -33,7 +42,7 @@ const LogIn = () => {
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("user", JSON.stringify(searchUser()));
 
-      successLoginAlert(searchUser().name, redirect, "/home");
+      successLoginAlert(searchUser().nombre, redirect, "/home");
     } else if (getEmail == "" || getPassword == "") {
       generalAlert(
         "Invalid credentials",

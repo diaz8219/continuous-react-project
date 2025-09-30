@@ -4,6 +4,9 @@ import "./Header.css";
 
 const Header = () => {
   let userAuth = JSON.parse(localStorage.getItem("user"));
+
+  let nameInitials = userAuth.nombre.split(" ").map((letter) => letter[0]).join("")
+
   let redirect = useNavigate();
   function logOut() {
     localStorage.removeItem("accessToken");
@@ -44,10 +47,10 @@ const Header = () => {
         <div className="header-user">
           <div className="user-profile">
             <div className="user-avatar">
-              <span className="avatar-text">AV</span>
+              <span className="avatar-text">{nameInitials}</span>
             </div>
             <div className="user-info">
-              <span className="user-name">{userAuth.name}</span>
+              <span className="user-name">{userAuth.nombre}</span>
             </div>
           </div>
           <button onClick={logOut} type="button" className="logout-btn">
